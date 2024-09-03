@@ -1,0 +1,84 @@
+model:
+  name: GPLPR
+  OCR_TRAIN: True
+  args:
+    nc: 3
+    isSeqModel: True
+    head: 2
+    inner: 256
+    isl2Norm: True
+    
+func_train: GP_LPR_TRAIN
+func_val: GP_LPR_VAL
+alphabet: "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+train_dataset:
+  dataset:
+    name: ocr_img
+    args:
+      path_split: ./split_all_rodosol.txt
+      phase: training
+      
+  wrapper:
+    name: Ocr_images_lp
+    args:
+      alphabet: "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      k: 7
+      imgW: 96
+      imgH: 32
+      aug: True
+      image_aspect_ratio: 3
+      background: (127, 127, 127)
+      with_lr: False
+  batch: 128
+
+val_dataset:
+  dataset:
+    name: ocr_img
+    args:
+      path_split: ./split_all_rodosol.txt
+      phase: validation
+
+  wrapper:
+    name: Ocr_images_lp
+    args:
+      alphabet: "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      k: 7
+      imgW: 96
+      imgH: 32
+      aug: False
+      image_aspect_ratio: 3
+      background: (127, 127, 127)
+      with_lr: False
+  batch: 128
+
+optimizer:
+  name: adam
+  args: 
+    lr: 1.e-3
+    betas: [0.5, 0.555]
+
+epoch_max: 3000
+
+loss:
+  name: CrossEntropyLoss
+  args:
+    size_average: None
+    reduce: None
+    reduction: mean
+
+reduce_on_plateau:
+  mode: 'min'
+  factor: 0.8
+  patience: 10
+  min_lr: 1.e-7
+  verbose: True
+
+early_stopper:
+  patience: 50
+  min_delta: 0
+  counter: 0
+
+epoch_max: 3000
+epoch_save: 100
+resume: #./save/_GP_LPR/epoch-last.pth
