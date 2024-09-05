@@ -12,7 +12,7 @@ class ocr_dataset(Dataset):
         with open(self.split_file, 'r') as f:
             data = f.readlines()    
         for path in data:    
-            path_imgs, _, split = path.split(';')
+            path_imgs, split = path.split(';')
             path_imgs = path_imgs.strip()
             
             sample = {"img": path_imgs,

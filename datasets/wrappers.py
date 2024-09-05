@@ -124,6 +124,7 @@ class Ocr_images_lp(Dataset):
         gts = []
         
         for item in datas:
+            name = item["img"]
             if self.with_lr:
                 img = self.Open_image(item["img"].replace('HR', 'LR') if random.random() < 0.5 else item["img"])
             else:
@@ -144,7 +145,7 @@ class Ocr_images_lp(Dataset):
         batch_imgs = torch.stack(imgs)
         
         return {
-            'img': batch_imgs, 'text': batch_txts
+            'img': batch_imgs, 'text': batch_txts, 'name': name
         }
     def __len__(self):
         return len(self.dataset)

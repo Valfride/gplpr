@@ -12,7 +12,7 @@ import torch
 from torch.optim import SGD, Adam
 import torch.nn.functional as F
 from torch.autograd import Variable
-from tensorboardX import SummaryWriter
+# from tensorboardX import SummaryWriter
 
 def make_optimizer(model_param, spec, load_optimizer=False):
     Optimizer = {
