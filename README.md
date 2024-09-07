@@ -59,12 +59,12 @@ resume: null
 
 Optionally, you can add the --tag argument for versioning:
 ```
-python3 train.py --config ./config/testing.yaml --save True
+python3 train.py --config ./config/training.yaml --save True
 ```
 
 Optionally, you can add the --tag argument, for versioning:
 ```
-python3 train.py --config ./config/testing.yaml --save True --tag example
+python3 train.py --config ./config/training.yaml --save True --tag example
 ```
 
 ## Training on a Custom Dataset
