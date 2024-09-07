@@ -46,10 +46,8 @@ model_ocr:
 Once the configuration is set, execute the following command to start the test:
 
 ```
-python3 test.py --config ./config/testing.yaml --save True --tag example
+python3 test_ocr.py --config ./config/testing.yaml --save True --tag example
 ```
-
-## Training From Scratch
 
 ## Training from Scratch
 
