@@ -51,7 +51,7 @@ python3 test_ocr.py --config ./config/testing.yaml --save True --tag example
 
 ## Training from Scratch
 
-To train the model from scratch, update the following variables in the [config file](configs/training.yaml):
+To train the model from scratch, update the following variables in the [config file](config/training.yaml):
 
 ```yaml
 resume: null
