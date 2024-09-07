@@ -1,4 +1,4 @@
-# GP_LPR Re-implementation
+# GP_LPR Implementation
 
 The original model architecture for the Optical Character Reader (OCR) used in this work is based on the [GP_LPR](https://github.com/MMM2024/GP_LPR) model by Liu et al., as presented in their publication titled *"Irregular License Plate Recognition via Global Information Integration."*
 
