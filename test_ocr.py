@@ -20,6 +20,7 @@ import torchvision.transforms as T
 import kornia as K
 torch.autograd.set_detect_anomaly(True)
 torch.cuda.empty_cache()
+import random
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
@@ -291,7 +292,7 @@ def test(val_loader, model, save_path):
     pbar = tqdm(val_loader, leave=False, desc='testing')
     
     for i_batch, batch in enumerate(pbar):
-        name.append(batch['name'])
+        name.extend(batch['name'])
         # text = converter.encode_list(batch['text'], K=7).cuda()
         _, preds,_ = model(batch['img'].cuda())
         preds_all = preds        
@@ -310,7 +311,7 @@ def test(val_loader, model, save_path):
         preds_all_r.extend(preds_all)
         sim_preds_r.extend(sim_preds)
         text_label_r.extend(text_label)
-       
+        # print(name.shape)
     for n, raw_pred, pred, gt in zip(name, preds_all, sim_preds, text_label):
         raw_pred = raw_pred.data
         pred = pred.replace('-', '')
@@ -348,7 +349,7 @@ def test(val_loader, model, save_path):
         writer.writerow(header)
         index = 0
         # Now write the data rows for each prediction
-        for n, raw_pred, pred, gt in zip(name, preds_all, sim_preds, text_label):
+        for n, raw_pred, pred, gt in zip(name, preds_all_r, sim_preds_r, text_label_r):
             index+=1
             raw_pred = raw_pred.data
             pred = pred.replace('-', '')
@@ -368,7 +369,7 @@ def main(config_, save_path):
     # Call the prepare_testing function to set up testing
     test_loader, model_ocr = prepare_testing()
 
-    # Call the test function to perform the testing
+    # Call the test function to perform the testings
     test(test_loader, model_ocr, save_path)
     
 
@@ -378,6 +379,18 @@ if __name__ == '__main__':
     parser.add_argument('--config')
     parser.add_argument('--save', default=None)    
     parser.add_argument('--tag', default=None)
+    
+    def setup_seed(seed):
+        random.seed(seed)
+        np.random.seed(seed)
+        torch.manual_seed(seed)  # sets the seed for cpu
+        torch.cuda.manual_seed(seed)  # Sets the seed for the current GPU.
+        torch.cuda.manual_seed_all(seed)  #  Sets the seed for the all GPU.
+        torch.backends.cudnn.benchmark = True
+        torch.backends.cudnn.enabled = True
+    
+    # Set a fixed random seed (for reproducibility)
+    setup_seed(1996)
 
     # Parse the command line arguments
     args = parser.parse_args()
