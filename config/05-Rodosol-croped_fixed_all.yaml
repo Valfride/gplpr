@@ -1,6 +1,6 @@
 model_ocr:
   name: GPLPR
-  load: ./save/_GP_LPR_HR__rect_cropped/best_model_Epoch_282.pth
+  load: ./save/testing/model.pth
   args:
     nc: 3
     isSeqModel: True
@@ -14,7 +14,7 @@ test_dataset:
   dataset:
     name: ocr_img
     args:
-      path_split: ./split_all_rodosol_cropped_and_rect.txt
+      path_split: ./split_all.txt
       phase: testing
 
   wrapper:
