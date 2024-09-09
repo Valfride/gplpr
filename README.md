@@ -69,29 +69,53 @@ python3 train.py --config ./config/training.yaml --save True --tag example
 
 ## Training on a Custom Dataset
 
-To train or fine-tune the model on a custom dataset, create a `.txt` file that lists the paths to the cropped and rectified images. The file should be formatted as shown below:
+To train or fine-tune the model on a custom dataset, you need to create a .txt file that lists the image paths along with their corresponding data split (training, validation, or testing). Each line in the file should follow this format:
 
 ```txt
 path/to/LP_image1.jpg;training
 path/to/LP_image2.jpg;validation
 path/to/LP_image3.jpg;testing
 ```
-Next, modify the [config file](configs/training.yaml) to specify the license plate *alphabet* and update the *path_split* argument to point to the .txt file:
+For reference, you can check example files, such as [split_all_pku.txt](split_all_pku.txt) and [split_all_rodosol.txt](split_all_rodosol.txt), which demonstrate this format.
+
+
+### Modifying the Configuration File for Training/Finetuning
+
+To customize the model for training or fine-tuning on a custom dataset, follow these steps:
+
+1. **Create a custom alphabet**: Update all fields marked with `alphabet: "customAlphabet"` in the config file to reflect your specific alphabet.
+2. **Update the dataset split**: Modify the `path_split` argument to point to your custom dataset split file (e.g., `your_custom_split.txt`).
+
+Here’s an example of the modified `training.yaml` file:
 
 ```yaml
-alphabet: "put the desired alphabet here"
+model:
+  name: GPLPR
+  OCR_TRAIN: True
+  args:
+    nc: 3
+    alphabet: "customAlphabet"   # Specify your custom alphabet here
+    K: 7
+    isSeqModel: True
+    head: 2
+    inner: 256
+    isl2Norm: True
+
+func_train: GP_LPR_TRAIN
+func_val: GP_LPR_VAL
+alphabet: "customAlphabet"         # Apply the custom alphabet
 
 train_dataset:
   dataset:
     name: ocr_img
     args:
-      path_split: your_custom_dataset_split.txt
+      path_split: your_custom_split.txt  # Set the path to your custom split file
       phase: training
-      
+
   wrapper:
     name: Ocr_images_lp
     args:
-      alphabet: "put the desired alphabet here"
+      alphabet: "customAlphabet"   # Specify your custom alphabet here
       k: 7
       imgW: 96
       imgH: 32
@@ -105,13 +129,13 @@ val_dataset:
   dataset:
     name: ocr_img
     args:
-      path_split: your_custom_dataset_split.txt
+      path_split: your_custom_split.txt  # Set the path to your custom split file
       phase: validation
 
   wrapper:
     name: Ocr_images_lp
     args:
-      alphabet: "put the desired alphabet here"
+      alphabet: "customAlphabet"   # Specify your custom alphabet here
       k: 7
       imgW: 96
       imgH: 32
@@ -120,4 +144,32 @@ val_dataset:
       background: (127, 127, 127)
       with_lr: False
   batch: 128
+
+optimizer:
+  name: adam
+  args:
+    lr: 1.e-3
+    betas: [0.5, 0.555]
+
+epoch_max: 3000
+
+loss:
+  name: CrossEntropyLoss
+  args:
+    size_average: None
+    reduce: None
+    reduction: mean
+
+early_stopper:
+  patience: 400
+  min_delta: 0
+  counter: 0
+
+epoch_max: 3000
+epoch_save: 100
+resume: null   # For fine-tuning, point this to your pre-trained model path
 ```
+### Additional Notes:
+- **Fine-tuning**: If you’re fine-tuning the model, modify the `resume:` field to point to your pre-trained model file.
+- **Alphabet**: Make sure to specify the correct custom alphabet consistently in all sections.
+- **Dataset split**: Ensure the `your_custom_split.txt` file contains the correct paths and data splits (e.g., training, validation, testing).
