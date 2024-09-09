@@ -1,6 +1,6 @@
 model_ocr:
   name: GPLPR
-  load: ./save/testing/model.pth
+  load: ./save/testing/model_rodosol.pth
   args:
     nc: 3
     isSeqModel: True
