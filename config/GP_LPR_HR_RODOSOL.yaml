@@ -2,6 +2,8 @@ model:
   name: GPLPR
   OCR_TRAIN: True
   args:
+    alphabet: "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    k: 7
     nc: 3
     isSeqModel: True
     head: 2
@@ -16,7 +18,7 @@ train_dataset:
   dataset:
     name: ocr_img
     args:
-      path_split: ./split_all.txt
+      path_split: ./split_all_rodosol.txt
       phase: training
       
   wrapper:
@@ -36,7 +38,7 @@ val_dataset:
   dataset:
     name: ocr_img
     args:
-      path_split: ./split_all.txt
+      path_split: ./split_all_rodosol.txt
       phase: validation
 
   wrapper:
