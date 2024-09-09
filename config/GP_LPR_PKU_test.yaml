@@ -1,0 +1,31 @@
+model_ocr:
+  name: GPLPR
+  load: ./save/testing/model_pku.pth
+  args:
+    nc: 3
+    isSeqModel: True
+    head: 2
+    inner: 256
+    isl2Norm: True
+
+alphabet: "0123456789ABCDEFGHJKLMNOPQRSTUVWXYZ京南新晋沪津浙皖粤苏豫赣鄂闽鲁黑警学"
+
+test_dataset:
+  dataset:
+    name: ocr_img
+    args:
+      path_split: ./split_all_pku.txt
+      phase: testing
+
+  wrapper:
+    name: Ocr_images_lp
+    args:
+      alphabet: "0123456789ABCDEFGHJKLMNOPQRSTUVWXYZ京南新晋沪津浙皖粤苏豫赣鄂闽鲁黑警学"
+      k: 7
+      imgW: 96
+      imgH: 32
+      aug: False
+      image_aspect_ratio: 3
+      background: (127, 127, 127)
+      with_lr: False
+  batch: 128
