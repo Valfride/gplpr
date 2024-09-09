@@ -2,9 +2,9 @@ model:
   name: GPLPR
   OCR_TRAIN: True
   args:
+    nc: 3
     alphabet: "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     k: 7
-    nc: 3
     isSeqModel: True
     head: 2
     inner: 256
