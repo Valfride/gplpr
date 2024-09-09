@@ -1,1 +1,21 @@
+./Rodosol-cropped_rect_percentage/cars-br/img_000003.jpg;training
+./Rodosol-cropped_rect_percentage/cars-br/img_000005.jpg;training
+./Rodosol-cropped_rect_percentage/cars-br/img_000007.jpg;training
+./Rodosol-cropped_rect_percentage/cars-br/img_000008.jpg;training
+./Rodosol-cropped_rect_percentage/cars-br/img_000009.jpg;training
+./Rodosol-cropped_rect_percentage/cars-br/img_000011.jpg;training
+./Rodosol-cropped_rect_percentage/cars-br/img_000013.jpg;training
+./Rodosol-cropped_rect_percentage/cars-br/img_000014.jpg;training
+./Rodosol-cropped_rect_percentage/cars-br/img_000015.jpg;training
+./Rodosol-cropped_rect_percentage/cars-br/img_000016.jpg;training
+./Rodosol-cropped_rect_percentage/cars-br/img_000001.jpg;validation
+./Rodosol-cropped_rect_percentage/cars-br/img_000006.jpg;validation
+./Rodosol-cropped_rect_percentage/cars-br/img_000012.jpg;validation
+./Rodosol-cropped_rect_percentage/cars-br/img_000021.jpg;validation
+./Rodosol-cropped_rect_percentage/cars-br/img_000023.jpg;validation
+./Rodosol-cropped_rect_percentage/cars-br/img_000002.jpg;testing
+./Rodosol-cropped_rect_percentage/cars-br/img_000004.jpg;testing
+./Rodosol-cropped_rect_percentage/cars-br/img_000010.jpg;testing
+./Rodosol-cropped_rect_percentage/cars-br/img_000020.jpg;testing
+./Rodosol-cropped_rect_percentage/cars-br/img_000044.jpg;testing
 
