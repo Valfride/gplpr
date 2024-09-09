@@ -29,7 +29,7 @@ The dataset is divided into four categories, with 5,000 images in each, based on
 This section provides instructions on testing the model, training it from scratch, and fine-tuning it on a custom dataset. Follow the steps below to set up and run the model. Additionally, 
 
 ## Testing
-To test the model, ensure that the [config file](config/testing.yaml) specifies the path to the .pth file, as shown in the example below:
+To test the model, ensure that the config file specifies the path to the .pth file (e.g.,  [config file](config/GP_LPR_RODOSOL_test.yaml)), as shown in the example below:
 
 ```yaml
 model_ocr:
