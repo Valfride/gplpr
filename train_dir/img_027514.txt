@@ -1,0 +1,4 @@
+type: motorcycle
+plate: MTW5I01
+layout: Mercosur
+corners: 2.0,2.0 106.0,2.0 106.0,93.0 2.0,93.0
