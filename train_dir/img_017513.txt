@@ -1,0 +1,4 @@
+type: motorcycle
+plate: PPJ4996
+layout: Brazilian
+corners: 2.0,2.0 79.0,2.0 79.0,72.0 2.0,72.0
