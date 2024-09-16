@@ -1,0 +1,4 @@
+type: motorcycle
+plate: PPA8B43
+layout: Mercosur
+corners: 2.0,2.0 104.0,2.0 104.0,88.0 2.0,88.0

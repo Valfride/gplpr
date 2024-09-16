@@ -1,0 +1,4 @@
+type: motorcycle
+plate: OYK2F92
+layout: Mercosur
+corners: 2.0,2.0 105.0,2.0 105.0,90.0 2.0,90.0

@@ -1,0 +1,4 @@
+type: motorcycle
+plate: QRE5E04
+layout: Mercosur
+corners: 2.0,2.0 92.0,2.0 92.0,82.0 2.0,82.0

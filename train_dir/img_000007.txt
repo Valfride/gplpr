@@ -1,0 +1,4 @@
+type: car
+plate: OVJ6688
+layout: Brazilian
+corners: 2.0,2.0 130.0,2.0 130.0,45.0 2.0,45.0

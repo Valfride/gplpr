@@ -1,0 +1,4 @@
+type: car
+plate: ODI9001
+layout: Brazilian
+corners: 2.0,2.0 132.0,2.0 132.0,47.0 2.0,47.0

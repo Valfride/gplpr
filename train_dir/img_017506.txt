@@ -1,0 +1,4 @@
+type: motorcycle
+plate: OVL1662
+layout: Brazilian
+corners: 2.0,2.0 62.0,2.0 62.0,54.0 2.0,54.0
