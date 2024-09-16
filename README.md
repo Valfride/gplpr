@@ -13,7 +13,7 @@ The dataset is divided into four categories, with 5,000 images in each, based on
 - **Cars with Mercosur LPs**
 - **Motorcycles with Mercosur LPs**
 
-### License Plate Formats
+### License Plate Layouts
 
 - **Brazilian LPs**: Comprise three letters followed by four digits (e.g., ABC-1234).
 - **Mercosur LPs**: Follow a specific pattern of three letters, one digit, one letter, and two digits (e.g., ABC1D23), as per the standard in the dataset.
