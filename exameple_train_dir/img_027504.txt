@@ -1,4 +1,0 @@
-type: motorcycle
-plate: QRE7E70
-layout: Mercosur
-corners: 2.0,2.0 78.0,2.0 78.0,69.0 2.0,69.0

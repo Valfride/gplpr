@@ -1,4 +1,0 @@
-type: car
-plate: PPC5431
-layout: Brazilian
-corners: 2.0,2.0 120.0,2.0 120.0,42.0 2.0,42.0

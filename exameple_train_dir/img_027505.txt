@@ -1,4 +1,0 @@
-type: motorcycle
-plate: PPV7J82
-layout: Mercosur
-corners: 2.0,2.0 110.0,2.0 110.0,93.0 2.0,93.0

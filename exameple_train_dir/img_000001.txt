@@ -1,4 +1,0 @@
-type: car
-plate: ODE2510
-layout: Brazilian
-corners: 2.0,2.0 130.0,2.0 130.0,44.0 2.0,44.0

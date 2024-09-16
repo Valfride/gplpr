@@ -1,4 +1,0 @@
-type: car
-plate: QRF3J90
-layout: Mercosur
-corners: 2.0,2.0 105.0,2.0 105.0,35.0 2.0,35.0
