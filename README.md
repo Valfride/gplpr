@@ -76,7 +76,7 @@ path/to/LP_image1.jpg;training
 path/to/LP_image2.jpg;validation
 path/to/LP_image3.jpg;testing
 ```
-For reference, you can check example files, such as [split_all_pku.txt](split_all_pku.txt) and [split_all_rodosol.txt](split_all_rodosol.txt), which demonstrate this format.
+For reference, you can check example files, such as [train_dir_split.txt](train_dir_split.txt)(with its images located under [train_dir](train_dir) directory), [split_all_pku.txt](split_all_pku.txt) and [split_all_rodosol.txt](split_all_rodosol.txt), which demonstrate this format.
 
 
 ### Modifying the Configuration File for Training/Finetuning
