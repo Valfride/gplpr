@@ -1,0 +1,4 @@
+type: car
+plate: QRF0A35
+layout: Mercosur
+corners: 2.0,2.0 123.0,2.0 123.0,39.0 2.0,39.0

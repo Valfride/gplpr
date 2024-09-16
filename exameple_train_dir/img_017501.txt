@@ -1,0 +1,4 @@
+type: motorcycle
+plate: MRH7545
+layout: Brazilian
+corners: 2.0,2.0 84.0,2.0 84.0,71.0 2.0,71.0

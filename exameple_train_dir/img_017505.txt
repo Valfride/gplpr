@@ -1,0 +1,4 @@
+type: motorcycle
+plate: MRW5561
+layout: Brazilian
+corners: 2.0,2.0 48.0,2.0 48.0,37.0 2.0,37.0

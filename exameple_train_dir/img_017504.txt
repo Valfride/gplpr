@@ -1,0 +1,4 @@
+type: motorcycle
+plate: MSA2398
+layout: Brazilian
+corners: 2.0,2.0 93.0,2.0 93.0,72.0 2.0,72.0

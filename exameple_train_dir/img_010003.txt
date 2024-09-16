@@ -1,0 +1,4 @@
+type: car
+plate: KXG9J64
+layout: Mercosur
+corners: 2.0,2.0 124.0,2.0 124.0,40.0 2.0,40.0
