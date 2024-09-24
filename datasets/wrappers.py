@@ -53,9 +53,7 @@ class Ocr_images_lp(Dataset):
         self.transformImg = np.array([
                 A.GaussNoise(var_limit=(10.0, 50.0), mean=0, per_channel=True, always_apply=True, p=1.0),
                 A.MultiplicativeNoise(multiplier=(0.9, 1.1), per_channel=True, elementwise=True, always_apply=True, p=1.0),
-                
-                A.Affine(scale={'x': (0.9, 1.1), 'y': (0.9, 1.1)}, translate_percent={'x': (-0.15, 0.15), 'y': (-0.15, 0.15)}, rotate=(-10, 10), shear={'x': (-10, 10), 'y': (-10, 10)}, mode=cv2.BORDER_CONSTANT, cval=self.background, fit_output=True, keep_ratio=True, p=1.0, always_apply=True),
-                A.SafeRotate(limit=15, value=(127, 127, 127), border_mode=cv2.BORDER_CONSTANT, p=1.0, always_apply=True),
+            
                 A.Posterize(num_bits=4, always_apply=True, p=1.0),
                 A.Equalize(mode='cv', by_channels=True, mask=None, mask_params=(), always_apply=True, p=1.0),
                 A.RandomBrightnessContrast(brightness_limit=0.2, contrast_limit=0.2, brightness_by_max=True, always_apply=True, p=1.0),
@@ -70,6 +68,12 @@ class Ocr_images_lp(Dataset):
             
     def Open_image(self, img, cvt=True):
         img = cv2.imread(img)
+
+	# Image is grayscale -> merge the single channel to get a three channel image
+        if len(img.shape) == 2 or img.shape[2] == 1:
+            #print("The image is already grayscale. Duplicating the grayscale channel.")
+            img = cv2.merge([img, img, img])
+
         if cvt is True:
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         return img
@@ -124,9 +128,9 @@ class Ocr_images_lp(Dataset):
     def collate_fn(self, datas):
         imgs = []
         gts = []
-        
+        name = [] 
         for item in datas:
-            name = item["img"]
+            name.append(item["img"])
             if self.with_lr:
                 img = self.Open_image(item["img"].replace('HR', 'LR') if random.random() < 0.5 else item["img"])
             else:
