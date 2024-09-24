@@ -69,14 +69,14 @@ class Ocr_images_lp(Dataset):
     def Open_image(self, img, cvt=True):
         img = cv2.imread(img)
 
-	# Image is grayscale -> merge the single channel to get a three channel image
+	# if image is grayscale, convert it to BGR
         if len(img.shape) == 2 or img.shape[2] == 1:
-            #print("The image is already grayscale. Duplicating the grayscale channel.")
-            img = cv2.merge([img, img, img])
+            img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
 
         if cvt is True:
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        return img
+        
+	return img
     
     def padding(self, img, min_ratio, max_ratio, color = (0, 0, 0)):
         img_h, img_w = np.shape(img)[:2]
