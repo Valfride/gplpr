@@ -4,7 +4,7 @@ Unofficial implementation of the OCR model proposed by Liu et al. in the paper *
 
 # Dataset
 
-The [RodoSol-ALPR](https://github.com/raysonlaroca/rodosol-alpr-dataset) dataset is a valuable resource for research in Automatic License Plate Recognition (ALPR). It contains 20,000 images of various vehicles, including cars and motorcycles. These images were captured under different conditions — day and night, across multiple toll stations, and during both clear and rainy weather.
+The [RodoSol-ALPR](https://github.com/raysonlaroca/rodosol-alpr-dataset) dataset is a valuable resource for research in Automatic License Plate Recognition (ALPR). It contains 20,000 images of various vehicle types, including cars and motorcycles. These images were captured under different conditions — day and night, across multiple toll stations, and during both clear and rainy weather.
 
 # Usage
 
