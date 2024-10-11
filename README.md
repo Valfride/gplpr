@@ -1,28 +1,10 @@
-# GP_LPR Implementation
+# GP_LPR
 
-The original model architecture for the Optical Character Reader (OCR) used in this work is based on the [GP_LPR](https://github.com/MMM2024/GP_LPR) model by Liu et al., as presented in their publication titled *"Irregular License Plate Recognition via Global Information Integration."*
+Unofficial implementation of the OCR model proposed by Liu et al. in the paper *"Irregular License Plate Recognition via Global Information Integration."*
 
-# RodoSol-ALPR Dataset
+# Dataset
 
-The [RodoSol-ALPR](https://github.com/raysonlaroca/rodosol-alpr-dataset) dataset contains 20,000 images of various vehicles, including cars and motorcycles. These images were captured under different conditions—day and night, across multiple toll stations, and during both clear and rainy weather.
-
-The dataset is divided into four categories, with 5,000 images in each, based on the type of vehicle and license plate (LP) format:
-
-- **Cars with Brazilian LPs**
-- **Motorcycles with Brazilian LPs**
-- **Cars with Mercosur LPs**
-- **Motorcycles with Mercosur LPs**
-
-### License Plate Layouts
-
-- **Brazilian LPs**: Comprise three letters followed by four digits (e.g., ABC-1234).
-- **Mercosur LPs**: Follow a specific pattern of three letters, one digit, one letter, and two digits (e.g., ABC1D23), as per the standard in the dataset.
-
-### Arrangement of License Plates
-
-- **Cars**: The license plates contain seven characters displayed in a single row.
-- **Motorcycles**: The license plates are arranged across two rows, with three characters in the first row and four characters in the second.
-
+The [RodoSol-ALPR](https://github.com/raysonlaroca/rodosol-alpr-dataset) dataset is a valuable resource for research in Automatic License Plate Recognition (ALPR). It contains 20,000 images of various vehicles, including cars and motorcycles. These images were captured under different conditions — day and night, across multiple toll stations, and during both clear and rainy weather.
 
 # Usage
 
